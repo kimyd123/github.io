@@ -109,6 +109,7 @@ function mainBG() {
     $(".main_bg0").fadeIn(700,"easeOutExpo").fadeOut(800,"easeOutExpo");
 }
 
+////
 
 
 
