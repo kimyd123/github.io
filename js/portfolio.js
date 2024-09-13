@@ -1,6 +1,4 @@
-//배경 효과
-
-
+////배경 효과
 let inner = $('.main .inner');
 let loading_inner = $('.loading_inner');
 
@@ -52,32 +50,7 @@ menu_gnb_lists.forEach((list)=>{
     })
 })
 
-//사운드바
-const sound_off = document.querySelector('.sound_off'); 
-const sound_on = document.querySelector('.sound_on'); 
-const soundbar_in = document.querySelector('.soundbar_in'); 
-const audio = document.getElementById('audio');
 
-sound_off.style.color ="white"
-sound_on.style.color ="#B8B8B8"
-
-sound_off.addEventListener('click',()=>{
-    soundbar_in.style.left='50%';
-    soundbar_in.classList.remove('check');
-    sound_off.style.color ="white"
-    sound_on.style.color ="#B8B8B8"
-    audio.pause();
-})
-sound_on.addEventListener('click',()=>{
-    soundbar_in.style.left='0%';
-    soundbar_in.classList.add('check');
-    sound_on.style.color ="white"
-    sound_off.style.color ="#B8B8B8"
-    audio.play();
-    audio.onended = function() {
-        audio.play();
-    };
-})
 
 
 //버튼클릭 배경이밴트
@@ -164,7 +137,6 @@ function mainBG() {
             return false;
         });
 
-
         //연속휠방지
         $(document).ready(function() {
             let handleMouseWheel = _.debounce(function(e) {
@@ -180,15 +152,6 @@ function mainBG() {
         });
 
 
-        //스킬 버튼이밴트
-        const skills_des_btn = document.querySelectorAll('.skills_des button');
-        const skill_note = document.querySelector('.content_wrap .skill_note');
-
-        function skill_note_opa(){
-            $(".skill_note").animate({ opacity: 0 },400);
-            $(".skill_note_click").animate({ opacity: 0 },400);
-        }
-
         function skill_note_arronw(){
             setTimeout(function(){
                 let icon = "<div class='skill_note_click'><span class='material-symbols-outlined'>keyboard_double_arrow_up</span><span>CLICK</span></div>";
@@ -196,43 +159,6 @@ function mainBG() {
             },800);
         } 
 
-
-        skills_des_btn.forEach((item,i)=>{
-            console.log(item);
-            item.addEventListener('click',function(){
-                if(i==0){
-                    skill_note_opa();
-                    $(".skill_note").animate({ opacity: 1 },400);
-                    setTimeout(function() {
-                        $(".skill_note").text("웹 페이지의 구조와 내용을 명확히 전달하기 위해 의미 있는 태그를 사용하여 마크업 작성하고 최신 HTML5 표준을 준수하여 웹 페이지를 작성하고, W3C의 웹 표준 가이드라인을 따라 크로스 브라우저 호환성 고려하여 코딩합니다.");
-                    }, 400);
-                }else if(i==1) {
-                    skill_note_opa();
-                    $(".skill_note").animate({ opacity: 1 },400);
-                    setTimeout(function() {
-                        $(".skill_note").text("반응형 웹 페이지를 고려하여 CSS를 구성할 줄 알며 여러 애니메이션과 트랜지션 효과로 페이지를 다채롭게 꾸밀 수 있습니다. 또한 복잡한 레이아웃을 효율적으로 구성하고 정렬할수 있습니다.");
-                    }, 400);
-                }else if(i==2) {
-                    skill_note_opa();
-                    $(".skill_note").animate({ opacity: 1 },400);
-                    setTimeout(function() {
-                        $(".skill_note").text("기본적인 문법과 기능을 이해하고 DOM을 조작하여 속성 변경 및 이벤트 핸들링이 가능합니다. 또한 다양한 사용자 이벤트에 대응하여 인터랙티브한 사용자 경험 제공할수 있습니다.")}, 400);
-                }else if(i==3) {
-                    skill_note_opa();
-                    $(".skill_note").animate({ opacity: 1 },400);
-                    setTimeout(function() {
-                        $(".skill_note").text("제이쿼리를 이용하여 DOM조작과 이벤트 처리 그리고 다양한 애니메이션 효과를 기능을 이용한 동적인 기능 구현이 가능합니다.")}, 400);
-
-                }else if(i==4) {
-                    skill_note_opa();
-                    $(".skill_note").animate({ opacity: 1 },400);
-                    setTimeout(function() {
-                        $(".skill_note").text("저는 React의 기본 개념을 이해하고 있으며, 컴포넌트를 활용하여 재사용 가능한 UI를 구성할 수 있습니다. 또한, useState를 사용하여 상태 관리를 효율적으로 수행하고, props를 통해 컴포넌트 간에 데이터를 전달할 수 있습니다. 더불어, React Router를 이용해 SPA(Single Page Application)에서 여러 페이지를 구현할 수 있습니다.");}, 400);
-
-                }
-
-            })
-        })
 
 
         //섹션별 문구/페이지 위치
@@ -259,7 +185,6 @@ function mainBG() {
                 left: "5.5%"
             }, 500);
             footer_page.innerHTML="page "+(a+1)+"/7";
-            contact_des.style.visibility="hidden";
         }
 
         const ob = new IntersectionObserver((e)=>{
@@ -315,3 +240,153 @@ function mainBG() {
         });
 
 
+
+        const playList = [
+            {
+                img :'./image/playlist.jpg',
+                song : 'Come And Get Your Love',
+                name : 'The Movie Film Orchestra',
+                title : './music/music1.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Hooked On A Feeling',
+                name : 'The Star-Lords',
+                title : './music/music2.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Guardians Inferno',
+                name : 'The Sneepers',
+                title : './music/music3.mp3'
+                
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Aint No Mountain High ...',
+                name : 'The Movie Film Orchestra',
+                title : './music/music4.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Come And Get Your Love',
+                name : 'FermaTa',
+                title : './music/music5.mp3'
+
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Fooled Around And Fell In Love',
+                name : 'The Movie Film Orchestra',
+                title : './music/music1.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Father And Son',
+                name : 'Cat Stevens',
+                title : './music/music2.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Mr. Blue Sky',
+                name : 'Electric Light Orchestra',
+                title : './music/music3.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'The Chain',
+                name : 'Fleetwood Mac',
+                title : './music/music4.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Brandy (You re A Fine Girl)',
+                name : 'Looking Glass',
+                title : './music/music5.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Bring It on Home to Me',
+                name : 'Sam Cooke',
+                title : './music/music1.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Bring It on Home to Me',
+                name : 'Sam Cooke',
+                title : './music/music2.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Bring It on Home to Me',
+                name : 'Sam Cooke',
+                title : './music/music3.mp3'
+            },
+            {
+                img :'./image/playlist.jpg',
+                song : 'Bring It on Home to Me',
+                name : 'Sam Cooke',
+                title : './music/music4.mp3'
+            }
+        ]
+
+//뮤직 리스트
+
+const play_listwrap = document.querySelector('.main_bg3 .wrap');
+
+
+
+
+playList.forEach((item, index)=>{
+    const newli = document.createElement('li');
+    const newspan1 = document.createElement('span');
+    const newspan2 = document.createElement('span');
+    const playlistImg = document.createElement('img');
+    const audio = document.createElement('audio');
+
+    audio.setAttribute('class', 'austoPlay');
+    audio.setAttribute('src',`${item.title}`);
+    newli.append(audio);
+    playlistImg.setAttribute('src', item.img);
+    newspan1.textContent = item.song;
+    newspan2.textContent = item.name;
+    newli.appendChild(playlistImg);
+    newli.appendChild(newspan1);
+    newli.appendChild(newspan2);
+    play_listwrap.appendChild(newli);
+});
+
+const play_li = document.querySelectorAll('.main_bg3 .wrap li');
+const audioElements  = document.querySelectorAll('.austoPlay');
+// 클릭 이벤트 처리
+play_li.forEach((item, index) => {
+    item.addEventListener('click', (e) => {
+        // 모든 오디오 요소를 순회하며 일시 정지
+        audioElements.forEach((audio, audioIndex) => {
+            if (audioIndex !== index) {
+                audio.pause(); // 현재 클릭된 것이 아닌 다른 오디오들은 모두 일시 정지
+                audio.currentTime = 0; // 재생 시간 초기화
+            }
+            play_li.forEach((i)=>{
+                i.classList.remove('act');
+            })
+        });
+
+        // 선택된 오디오가 재생 중인 경우 일시 정지, 그렇지 않으면 재생
+        if (audioElements[index].paused) {
+            audioElements[index].play();
+            play_li[index].classList.toggle('act');
+        } else {
+            audioElements[index].pause();
+
+        }
+    });
+});
+
+
+const music_list = document.querySelector('.music_list');
+
+music_list.addEventListener('click',()=>{
+    console.log('ddd');
+    play_listwrap.classList.toggle('act');
+});
